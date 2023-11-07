@@ -1,0 +1,53 @@
+﻿@page
+
+<table style="width: 100%;">
+    <tr>
+        <td style="width: 50%; vertical-align: top;">
+            <div><h3>SERVER</h3></div>
+            <hr/>
+            <fieldset style="margin: 20px;min-height: 100px;">
+                <div><b style="font-size: 14pt;">1) Upload File:</b></div>
+                <hr style="margin-top: 0; margin-bottom: 10px;"/>
+                <input type="file" id="uploadFile" name="uploadFile" class="btn-sm btn-secondary"/>
+                <input id="btnUpload" type="button" value="Upload file to server" style="float: right;" class="btn-sm btn-primary"/>
+            </fieldset>
+            <fieldset style="margin: 20px;min-height: 100px;">
+                <div><b style="font-size: 14pt;">2) File uploaded:</b></div>
+                <hr style="margin-top: 0; margin-bottom: 10px;"/>
+                <div>File Name: <i><span id="fileNameSpan"></span></i></div>
+                <div>File Size: <i><span id="fileSizeSpan"></span></i></div>
+                <div id="success" style="font-weight:bold; color:green"></div>
+                <div id="error" style="font-weight:bold; color:red"></div>
+            </fieldset>
+            <fieldset style="margin: 20px;min-height: 100px;">
+                <div><b style="font-size: 14pt;">3) Send File:</b></div>
+                <hr style="margin-top: 0; margin-bottom: 10px;" />
+                <input id="btnBroadcast" type="button" value="Broadcast file to all clients" class="btn-sm btn-primary" />
+            </fieldset>
+        </td>
+        <td style="width: 50%; vertical-align: top;">
+            <div><h3>CLIENT</h3></div>
+            <hr/>
+            <fieldset style="margin: 20px;min-height: 100px;">
+                <div><b style="font-size: 14pt;">1) Connection Status:</b></div>
+                <hr style="margin-top: 0; margin-bottom: 10px;"/>
+                <div>
+                    <i><span id="connectionStatusSpan" style="color: red;">NOT CONNECTED</span></i>
+                    <input id="btnConnect" type="button" value="Connect to hub" style="float: right;" class="btn-sm btn-primary"/>
+                </div>
+            </fieldset>
+            <fieldset style="margin: 20px;min-height: 100px;">
+                <div><b style="font-size: 14pt;">2) Client - Received:</b></div>
+                <hr style="margin-top: 0; margin-bottom: 10px;"/>
+                <div>Message sent to all clients:</div>
+                <div><i><span id="receivedFileNameSpan"></span></i></div>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+<span id="filePathSpan" style="display: none;"></span>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/toastr/toastr.js"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/lib/microsoft/signalr/myHub.js"></script>
